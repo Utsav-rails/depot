@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <title>Pragprog Books Online Store</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <div id="side">
+            <a href="http://www....">Home</a><br />
+            <a href="http://www..../faq">Questions</a><br />
+            <a href="http://www..../news">News</a><br />
+            <a href="http://www..../contact">Contact</a><br />
+          </div>
+          <div id="main">
+            <%= @content_for_layout %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div id="banner">
+            <img src="110775884_138020977950813_7429709271495644360_n.jpg"/>
+            <%= @page_title || "Pragmatic Bookshelf" %>
+          </div> 
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
